@@ -406,7 +406,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -465,11 +465,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41710cda5b34bee47a14f8022e8b876f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  downSprite: {fileID: 0}
-  upSprite: {fileID: 0}
-  leftSprite: {fileID: 0}
-  rightSprite: {fileID: 0}
+  moveSpeed: 3
+  downSprite: {fileID: 971028673, guid: 41b33b486518c454f96528e105d066b5, type: 3}
+  upSprite: {fileID: -885903729, guid: 41b33b486518c454f96528e105d066b5, type: 3}
+  leftSprite: {fileID: -704285166, guid: 41b33b486518c454f96528e105d066b5, type: 3}
+  rightSprite: {fileID: 726951670, guid: 41b33b486518c454f96528e105d066b5, type: 3}
 --- !u!1 &1749667172
 GameObject:
   m_ObjectHideFlags: 0
