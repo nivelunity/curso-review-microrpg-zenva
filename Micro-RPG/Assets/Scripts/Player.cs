@@ -16,10 +16,12 @@ public class Player : MonoBehaviour
 
     private Vector2 facingDirection;
     private Rigidbody2D rig;
+    private SpriteRenderer avatar;
 
     private void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
+        avatar = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -36,7 +38,22 @@ public class Player : MonoBehaviour
 
         if (vel.magnitude != 0)
             facingDirection = vel;
-
+        
+        UpdateSpriteDirection();
+        
         rig.velocity = vel * moveSpeed;
+     
     }
+
+    void UpdateSpriteDirection()
+    {
+        if (facingDirection == Vector2.up)
+            avatar.sprite = upSprite;
+        else if(facingDirection == Vector2.down)
+            avatar.sprite = downSprite;
+        else if(facingDirection == Vector2.left)
+            avatar.sprite = leftSprite;
+        else if(facingDirection == Vector2.right)
+            avatar.sprite = rightSprite;
+    }   
 }
