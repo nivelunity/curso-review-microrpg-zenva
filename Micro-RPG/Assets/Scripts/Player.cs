@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,4 +14,12 @@ public class Player : MonoBehaviour
     public Sprite leftSprite;
     public Sprite rightSprite;
 
+    private Vector3 facingDirection;
+    private Rigidbody2D rig;
+
+    private void Awake()
+    {
+        rig = GetComponent<Rigidbody2D>();
+    }
+    
 }
