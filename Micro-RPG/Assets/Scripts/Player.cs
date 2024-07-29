@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
         if (hit.collider != null)
         {
-            
+            hit.collider.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
     

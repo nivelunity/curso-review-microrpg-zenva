@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
+    public int curHp;
+    public int maxHp;
     public float moveSpeed;
     
     [Header("Stats")]
@@ -41,6 +43,20 @@ public class Enemy : MonoBehaviour
     {
         Vector2 dir = (player.transform.position - transform.position).normalized;
         rig.velocity = dir * moveSpeed;
+    }
+
+    public void TakeDamage(int damageTaken)
+    {
+        curHp -= damageTaken;
+        if (curHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
 
