@@ -7,7 +7,16 @@ public class Player : MonoBehaviour
 {
     [Header("Stats")]
     public float moveSpeed;
+    public int curHp;
+    public int maxHp;
+    public int damage;
 
+    [Header("Combat")] 
+    public KeyCode attackKey;
+    public float attackRange;
+    public float attackRate;
+    private float lastAttackTime;
+    
     [Header("Sprites")] 
     public Sprite downSprite;
     public Sprite upSprite;
@@ -27,8 +36,24 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
+        if (Input.GetKeyDown(attackKey))
+        {
+            if (Time.time - lastAttackTime >= attackRate)
+                Attack();
+        }
     }
+    
+    void Attack()
+    {
+        lastAttackTime = Time.time;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, facingDirection, attackRange, 1 << 8);
 
+        if (hit.collider != null)
+        {
+            
+        }
+    }
+    
     void Move()
     {
         float x = Input.GetAxis("Horizontal");
