@@ -33,12 +33,14 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private SpriteRenderer avatar;
     private ParticleSystem hitEffect;
+    private PlayerUI ui;
 
     private void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
         avatar = GetComponent<SpriteRenderer>();
         hitEffect = gameObject.GetComponentInChildren<ParticleSystem>();
+        ui = FindObjectOfType<PlayerUI>();
     }
 
     private void Update()
@@ -121,5 +123,7 @@ public class Player : MonoBehaviour
         curLevel++;
 
         xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * levelXpModifier);
+        
+        ui.UpdateLevelText();
     }
 }

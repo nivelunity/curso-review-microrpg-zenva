@@ -12,10 +12,15 @@ public class PlayerUI : MonoBehaviour
    public Image healthBarFill;
    public Image xpBarFill;
 
-   private Player player;
 
+   private Player player;
    private void Awake()
    {
       player = FindObjectOfType<Player>();
+   }
+
+   public void UpdateLevelText()
+   {
+      levelText.text = "Lvl \n" + player.curLevel;
    }
 }
