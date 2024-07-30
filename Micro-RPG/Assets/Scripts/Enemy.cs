@@ -6,12 +6,19 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
+    public int curHp;
+    public int maxHp;
     public float moveSpeed;
     
     [Header("Stats")]
     public float chaseRange;
     public float attackRange;
     private Player player;
+    
+    [Header("Attack")]
+    public int damage;
+    public float attackRate;
+    private float lastAttackTime;
     
     private Rigidbody2D rig;
     private void Awake()
@@ -26,6 +33,8 @@ public class Enemy : MonoBehaviour
         if (playerDist <= attackRange)
         {
             //attack player
+            if (Time.time - lastAttackTime >= attackRate)
+                Attack();
             rig.velocity = Vector2.zero;
         }else if(playerDist <= chaseRange)
         {
@@ -37,10 +46,30 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Attack()
+    {
+        lastAttackTime = Time.time;
+        player.TakeDamage(damage);
+    }
+
     void Chase()
     {
         Vector2 dir = (player.transform.position - transform.position).normalized;
         rig.velocity = dir * moveSpeed;
+    }
+
+    public void TakeDamage(int damageTaken)
+    {
+        curHp -= damageTaken;
+        if (curHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
 
