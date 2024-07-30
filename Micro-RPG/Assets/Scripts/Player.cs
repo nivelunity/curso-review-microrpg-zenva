@@ -115,7 +115,9 @@ public class Player : MonoBehaviour
     public void AddXp(int xp)
     {
         curXp += xp;
- 
+        
+        ui.UpdateXpBar();
+        
         if (curXp >= xpToNextLevel) 
             LevelUp();
     }
