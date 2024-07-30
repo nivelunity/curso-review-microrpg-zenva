@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int curHp;
     public int maxHp;
     public float moveSpeed;
+    public int xpToGive;
     
     [Header("Stats")]
     public float chaseRange;
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        player.AddXp(xpToGive);
         Destroy(gameObject);
     }
 }
