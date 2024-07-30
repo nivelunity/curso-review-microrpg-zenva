@@ -111,7 +111,15 @@ public class Player : MonoBehaviour
     {
         curHp += xp;
 
-        if (curXp >= xpToNextLevel) ;
-        //LevelUp
+        if (curXp >= xpToNextLevel) 
+            LevelUp();
+    }
+
+    public void LevelUp()
+    {
+        curXp -= xpToNextLevel;
+        curLevel++;
+
+        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * levelXpModifier);
     }
 }
