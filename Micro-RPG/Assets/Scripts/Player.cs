@@ -43,6 +43,13 @@ public class Player : MonoBehaviour
         ui = FindObjectOfType<PlayerUI>();
     }
 
+    private void Start()
+    {
+        ui.UpdateHealthBar();
+        ui.UpdateXpBar();
+        ui.UpdateLevelText();
+    }
+
     private void Update()
     {
         Move();
@@ -130,5 +137,6 @@ public class Player : MonoBehaviour
         xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * levelXpModifier);
         
         ui.UpdateLevelText();
+        ui.UpdateXpBar();
     }
 }
