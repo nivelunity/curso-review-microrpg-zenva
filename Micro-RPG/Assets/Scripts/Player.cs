@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     public float attackRange;
     public float attackRate;
     private float lastAttackTime;
+
+    [Header("Experience")] 
+    public int curLevel;
+    public int curXp;
+    public int xpToNextLevel;
+    public float levelXpModifier;
     
     [Header("Sprites")] 
     public Sprite downSprite;
@@ -99,5 +105,13 @@ public class Player : MonoBehaviour
     void Die()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+    }
+
+    public void AddXp(int xp)
+    {
+        curHp += xp;
+
+        if (curXp >= xpToNextLevel) ;
+        //LevelUp
     }
 }
