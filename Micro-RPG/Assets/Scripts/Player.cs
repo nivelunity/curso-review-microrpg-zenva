@@ -33,12 +33,21 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private SpriteRenderer avatar;
     private ParticleSystem hitEffect;
+    private PlayerUI ui;
 
     private void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
         avatar = GetComponent<SpriteRenderer>();
         hitEffect = gameObject.GetComponentInChildren<ParticleSystem>();
+        ui = FindObjectOfType<PlayerUI>();
+    }
+
+    private void Start()
+    {
+        ui.UpdateHealthBar();
+        ui.UpdateXpBar();
+        ui.UpdateLevelText();
     }
 
     private void Update()
@@ -96,6 +105,9 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         curHp -= damageTaken;
+        
+        ui.UpdateHealthBar();
+        
         if (curHp <= 0)
         {
           Die();
@@ -110,7 +122,9 @@ public class Player : MonoBehaviour
     public void AddXp(int xp)
     {
         curXp += xp;
- 
+        
+        ui.UpdateXpBar();
+        
         if (curXp >= xpToNextLevel) 
             LevelUp();
     }
@@ -121,5 +135,8 @@ public class Player : MonoBehaviour
         curLevel++;
 
         xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * levelXpModifier);
+        
+        ui.UpdateLevelText();
+        ui.UpdateXpBar();
     }
 }
