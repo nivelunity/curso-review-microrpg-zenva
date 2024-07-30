@@ -23,4 +23,9 @@ public class PlayerUI : MonoBehaviour
    {
       levelText.text = "Lvl \n" + player.curLevel;
    }
+   
+   public void UpdateHealthBar()
+   {
+      healthBarFill.fillAmount =  (float)player.curHp / (float)player.maxHp;
+   }
 }

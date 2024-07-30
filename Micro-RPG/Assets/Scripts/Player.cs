@@ -98,6 +98,9 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         curHp -= damageTaken;
+        
+        ui.UpdateHealthBar();
+        
         if (curHp <= 0)
         {
           Die();
