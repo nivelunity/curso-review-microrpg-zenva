@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public int curHp;
     public int maxHp;
     public int damage;
-
+    
     [Header("Combat")] 
     public KeyCode attackKey;
     public float attackRange;
@@ -109,8 +109,8 @@ public class Player : MonoBehaviour
 
     public void AddXp(int xp)
     {
-        curHp += xp;
-
+        curXp += xp;
+ 
         if (curXp >= xpToNextLevel) 
             LevelUp();
     }

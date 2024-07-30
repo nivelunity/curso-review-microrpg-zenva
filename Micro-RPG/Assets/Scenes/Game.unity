@@ -315,7 +315,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1150969760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +331,7 @@ MonoBehaviour:
   curHp: 5
   maxHp: 5
   moveSpeed: 1.5
+  xpToGive: 10
   chaseRange: 5
   attackRange: 1
   damage: 1
@@ -641,6 +642,10 @@ MonoBehaviour:
   attackKey: 32
   attackRange: 1
   attackRate: 0.2
+  curLevel: 0
+  curXp: 0
+  xpToNextLevel: 5
+  levelXpModifier: 1.5
   downSprite: {fileID: 971028673, guid: 41b33b486518c454f96528e105d066b5, type: 3}
   upSprite: {fileID: -885903729, guid: 41b33b486518c454f96528e105d066b5, type: 3}
   leftSprite: {fileID: -704285166, guid: 41b33b486518c454f96528e105d066b5, type: 3}
