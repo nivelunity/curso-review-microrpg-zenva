@@ -80,5 +80,18 @@ public class Player : MonoBehaviour
             avatar.sprite = leftSprite;
         else if(facingDirection == Vector2.right)
             avatar.sprite = rightSprite;
-    }   
+    }
+    public void TakeDamage(int damageTaken)
+    {
+        curHp -= damageTaken;
+        if (curHp <= 0)
+        {
+          Die();
+        }
+    }
+    
+    void Die()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+    }
 }

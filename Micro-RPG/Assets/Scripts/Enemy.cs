@@ -15,6 +15,11 @@ public class Enemy : MonoBehaviour
     public float attackRange;
     private Player player;
     
+    [Header("Attack")]
+    public int damage;
+    public float attackRate;
+    private float lastAttackTime;
+    
     private Rigidbody2D rig;
     private void Awake()
     {
@@ -28,6 +33,8 @@ public class Enemy : MonoBehaviour
         if (playerDist <= attackRange)
         {
             //attack player
+            if (Time.time - lastAttackTime >= attackRate)
+                Attack();
             rig.velocity = Vector2.zero;
         }else if(playerDist <= chaseRange)
         {
@@ -37,6 +44,12 @@ public class Enemy : MonoBehaviour
         {
             rig.velocity = Vector2.zero;
         }
+    }
+
+    void Attack()
+    {
+        lastAttackTime = Time.time;
+        player.TakeDamage(damage);
     }
 
     void Chase()
