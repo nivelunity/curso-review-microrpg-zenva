@@ -68,7 +68,15 @@ public class Player : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, facingDirection, interactRange, 1 << 9);
         if (hit.collider != null)
         {
-            
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            ui.SetInteractText(hit.collider.transform.position, interactable.interactDescription);
+
+            if (Input.GetKeyDown(attackKey))
+                interactable.Interact();
+        }
+        else
+        {
+            ui.DisableInteractText();
         }
     }
     

@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 201391678}
   - component: {fileID: 201391677}
   - component: {fileID: 201391680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1150969756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   curHp: 10
   maxHp: 10
   damage: 1
-  interactRange: 0
+  interactRange: 1
   attackKey: 32
   attackRange: 1
   attackRate: 0.2

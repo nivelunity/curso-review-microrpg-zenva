@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
    public string interactDescription;
    public UnityEvent onInteract;
 
-   public void Inteact()
+   public void Interact()
    {
       if(onInteract != null)
          onInteract.Invoke();
