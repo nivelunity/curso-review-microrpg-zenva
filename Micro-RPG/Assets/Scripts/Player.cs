@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public int maxHp;
     public int damage;
     public float interactRange;
+    public List<string> inventory = new List<string>();
+    
     
     [Header("Combat")] 
     public KeyCode attackKey;
@@ -158,5 +160,10 @@ public class Player : MonoBehaviour
         
         ui.UpdateLevelText();
         ui.UpdateXpBar();
+    }
+
+    public void AddItemToInventory(string item)
+    {
+        inventory.Add(item);
     }
 }
