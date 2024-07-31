@@ -165,5 +165,6 @@ public class Player : MonoBehaviour
     public void AddItemToInventory(string item)
     {
         inventory.Add(item);
+        ui.UpdateInventoryText();
     }
 }
