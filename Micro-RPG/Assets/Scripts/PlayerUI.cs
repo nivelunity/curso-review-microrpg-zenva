@@ -46,4 +46,14 @@ public class PlayerUI : MonoBehaviour
       if(interactText.gameObject.activeInHierarchy)
          interactText.gameObject.SetActive(false);
    }
+
+   public void UpdateInventoryText()
+   {
+      inventoryText.text = "";
+      
+      foreach (string item in player.inventory)
+      {
+         inventoryText.text += item + "\n";
+      }
+   }
 }
