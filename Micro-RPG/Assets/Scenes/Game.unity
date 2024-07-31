@@ -10172,6 +10172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 756898432}
   inventoryText: {fileID: 287668731}
+  interactText: {fileID: 1882961683}
   healthBarFill: {fileID: 720580653}
   xpBarFill: {fileID: 1337456373}
 --- !u!1660057539 &9223372036854775807
