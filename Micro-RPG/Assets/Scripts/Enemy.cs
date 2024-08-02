@@ -6,8 +6,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    public int curHp;
-    public int maxHp;
+    
+    [SerializeField]
+    [Range(1,10)]
+    private int curHp;
+    
+    [SerializeField]
+    [Range(1,10)]
+    private int maxHp;
+    
     public float moveSpeed;
     public int xpToGive;
     
